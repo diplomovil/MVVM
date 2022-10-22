@@ -10,13 +10,14 @@ import com.amaurypm.mvvm.model.AnimeProvider
  */
 class AnimeViewModel: ViewModel() {
 
-    val animeModel = MutableLiveData<AnimeModel>()
-    val name = MutableLiveData<String>()
-    val id = MutableLiveData<Int>()
+    var animeModel = MutableLiveData<AnimeModel>()
+    var name = MutableLiveData<String>()
+    var id = MutableLiveData<Int>()
 
     fun updateAnime(){
         val currentAnime = AnimeProvider.getAnime()
         animeModel.postValue(currentAnime)
+        name.postValue("Amaury")
     }
 
 }

@@ -3,6 +3,7 @@ package com.amaurypm.mvvm.view.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +35,12 @@ class MainActivity : AppCompatActivity() {
             animes.add(animeTmp)
             //adapter.notifyDataSetChanged()
             adapter.notifyItemInserted(animes.size-1)
+
+        })
+
+        animeViewModel.name.observe(this, Observer { name ->
+
+            Toast.makeText(this, "Hola $name", Toast.LENGTH_SHORT).show()
 
         })
 
